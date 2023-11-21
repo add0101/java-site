@@ -3,11 +3,12 @@ import java.io.OutputStream;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
+import java.net.InetSocketAddress;
 
 public class SimpleServer {
     public static void main(String[] args) throws Exception {
         // Create a simple HTTP server on port 8080
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(8082), 0);
         
         // Create a basic handler for incoming requests
         server.createContext("/", new MyHandler());
@@ -15,7 +16,7 @@ public class SimpleServer {
         // Start the server
         server.start();
         
-        System.out.println("Server is running on port 8080");
+        System.out.println("Server is running on port 8082");
     }
     
     // Handler class to handle incoming requests
